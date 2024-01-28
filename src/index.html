@@ -3,18 +3,19 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     <link rel="stylesheet" href="./styles/main.scss">
     <title>Darkning</title>
 </head>
 <body>
     <header class="header">
         <div class="container">
-            <div class="header__logo">
+            <div class="header__logo" data-aos="fade-down"  data-aos-delay="300">
                 <h1>
                     <img src="./images/logo/others/logo.png" alt="logo">
                 </h1>
             </div>
-            <nav class="header__nav">
+            <nav class="header__nav" data-aos="fade-right" data-aos-delay="500">
                 <ul class="header__nav__navbar">
                     <li class="header__nav__navbar__item active" data-target="projects">
                         Projects
@@ -35,7 +36,7 @@
             </nav>      
         </div>
     </header>
-            <section id="projects">
+            <section id="projects" data-aos="fade-up" data-aos-delay="700">
                 <article class="grid">
                     <ul class="grid__galery">
                         <li class="grid__galery__item">
@@ -190,6 +191,7 @@
                     <section id="contact" class="content">contact</section>
                     <section id="links" class="content">links</section>
                 </div>
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script src="./scripts/main.js"></script>
 </body>
 </html>

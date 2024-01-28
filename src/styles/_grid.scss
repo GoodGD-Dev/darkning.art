@@ -19,7 +19,7 @@
         display: flex;
         background-color:
         var(--background);
-        gap: 16px;
+        gap: 15px;
         scale: 1.6;
         margin-bottom: 30px;
 
@@ -32,7 +32,7 @@
             background-color:
                 var(--background);
             border-radius: 8px;
-            transition: 1000ms all;
+            transition: 500ms all;
             transform-origin:
                 center left;
             box-shadow: 0 5px 12px rgba(0, 0, 0, 0.5);
@@ -47,7 +47,7 @@
 
             &:hover {
                 cursor: pointer;
-                transform: scale(1.15);
+                transform: scale(1.10);
                 box-shadow: 0 0 20px var.$color3;
                 margin: 5px;
             }

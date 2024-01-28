@@ -1,3 +1,5 @@
+AOS.init();
+
 document.addEventListener('DOMContentLoaded', function () {
     var sections = {
         'projects': document.getElementById('projects'),
