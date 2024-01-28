@@ -1,20 +1,21 @@
 @use 'var';
 
 :root {
-    --background: var.$white;
-    --background-border: var.$purple;
+    --background: var.$color2;
+    --background-border: var.$color3;
 }
 
-.main {
+.grid {
     height: 100vh;
     padding: 32px;
     display: grid;
     place-items: center;
     background-color: var(--background);
     flex: 1;
+    margin-top: 45px;
     
 
-    &__grid {
+    &__galery {
         display: flex;
         background-color:
         var(--background);
@@ -26,7 +27,7 @@
             margin-bottom: 100px;
             position: relative;
             left: 0px;
-            width: 140px;
+            width: 160px;
             height: 160px;
             background-color:
                 var(--background);
@@ -47,7 +48,7 @@
             &:hover {
                 cursor: pointer;
                 transform: scale(1.15);
-                box-shadow: 0 0 20px var.$purple;
+                box-shadow: 0 0 20px var.$color3;
                 margin: 5px;
             }
 
@@ -61,7 +62,7 @@
                 background: linear-gradient(to top,
                     rgba(0, 0, 0, 0.9) 0%,
                     rgba(0, 0, 0, 0) 100%);
-                color: var.$white;
+                color: var.$color2;
                 left: 0px;
                 bottom: 0px;
                 padding-left: 12px;

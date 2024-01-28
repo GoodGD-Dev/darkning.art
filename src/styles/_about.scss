@@ -1,0 +1,13 @@
+@use 'var';
+
+.about {
+    &__title {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+    &__content {
+        columns: 200px 1;
+        column-gap: 30px;
+        padding: 20px;
+    }
+}
