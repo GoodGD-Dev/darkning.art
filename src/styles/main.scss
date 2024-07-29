@@ -3,6 +3,14 @@
 @use 'grid';
 @use 'about';
 
-.content {
+.hidden {
     display: none;
 }
+
+.visible {
+    display: block;
+}
+
+.aos-animate {
+    opacity: 1 !important;
+} 
