@@ -3,13 +3,13 @@ AOS.init();
 document.addEventListener('DOMContentLoaded', () => {
     let sections = {
     'about': document.getElementById('about'),
-    'contact': document.getElementById('contact'),
+    'links': document.getElementById('links'),
     'comission': document.getElementById('comission')
     };
 
     let navItems = {
     'about': document.querySelector('[data-target="about"]'),
-    'contact': document.querySelector('[data-target="contact"]'),
+    'links': document.querySelector('[data-target="links"]'),
     'comission': document.querySelector('[data-target="comission"]')
     };
 
