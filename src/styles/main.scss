@@ -1,7 +1,8 @@
 @use 'var';
 @use 'header';
-@use 'grid';
 @use 'about';
+@use 'contact';
+@use 'commission';
 
 .hidden {
     display: none;
@@ -13,4 +14,4 @@
 
 .aos-animate {
     opacity: 1 !important;
-} 
+};

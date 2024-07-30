@@ -1,0 +1,65 @@
+@use 'var';
+
+.contact--redes {
+  display: flex;
+  justify-content: center;
+
+  img {
+    width: 32px;
+  }
+}
+
+.redes {
+  display: flex;
+  justify-content: space-around;
+  gap: 20px;
+}
+
+
+.ytbn, .insta, .cara {
+  transition: filter 0.3s ease; 
+}
+
+
+.redes__icons__icon:hover .ytb {
+  filter: brightness(0) saturate(100%) invert(19%) sepia(100%) saturate(3100%) hue-rotate(-50deg) brightness(90%) contrast(100%);
+}
+
+.redes__icons__icon:hover .insta {
+  filter: brightness(0) saturate(100%) invert(19%) sepia(100%) saturate(3500%) hue-rotate(-50deg) brightness(90%) contrast(100%);
+}
+
+.redes__icons__icon:hover .cara {
+  filter: brightness(0) saturate(100%) invert(19%) sepia(0%) saturate(3500%) hue-rotate(-50deg) brightness(90%) contrast(100%);
+}
+
+.contact--others {
+  display: flex;
+  justify-content: center;
+}
+
+.others {
+  &__pad {
+    width: 300px;
+    margin: 10px;
+    padding: 12px 8px;
+    background-color: var.$color1;
+    color: var.$color2;
+    text-align: center;
+    &:hover {
+      color: var.$color3;
+      cursor: pointer;
+    }
+  }
+}
+
+a {
+  text-decoration: none;
+  color: var.$color2;
+  font-size: 18px;
+  text-transform: uppercase;
+}
+
+li {
+  list-style-type: none;
+}
