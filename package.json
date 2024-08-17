@@ -4,7 +4,10 @@
   "description": "",
   "scripts": {
     "dev": "parcel src/index.html src/styles/main.scss src/scripts/main.js",
-    "build": "parcel build src/index.html --public-url ./ src/index.html src/styles/main.scss src/scripts/main.js",
+    "build:en": "parcel build src/index.html --public-url ./ --dist-dir dist",
+    "build:pt": "parcel build src/pt/index.html --public-url ../pt/ --dist-dir dist/pt",
+    "build:es": "parcel build src/es/index.html --public-url ../es/ --dist-dir dist/es",
+    "build": "npm run build:en && npm run build:pt && npm run build:es",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
