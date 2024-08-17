@@ -1,4 +1,4 @@
-@use 'var';
+@use "var";
 
 .contact--redes {
   display: flex;
@@ -15,22 +15,25 @@
   gap: 20px;
 }
 
-
-.ytbn, .insta, .cara {
-  transition: filter 0.3s ease; 
+.ytbn,
+.insta,
+.cara {
+  transition: filter 0.5s ease;
 }
 
-
 .redes__icons__icon:hover .ytb {
-  filter: brightness(0) saturate(100%) invert(19%) sepia(100%) saturate(3100%) hue-rotate(-50deg) brightness(90%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(19%) sepia(100%) saturate(3100%)
+    hue-rotate(-50deg) brightness(90%) contrast(100%);
 }
 
 .redes__icons__icon:hover .insta {
-  filter: brightness(0) saturate(100%) invert(19%) sepia(100%) saturate(3500%) hue-rotate(-50deg) brightness(90%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(19%) sepia(100%) saturate(3500%)
+    hue-rotate(-50deg) brightness(90%) contrast(100%);
 }
 
 .redes__icons__icon:hover .cara {
-  filter: brightness(0) saturate(100%) invert(19%) sepia(0%) saturate(3500%) hue-rotate(-50deg) brightness(90%) contrast(100%);
+  filter: brightness(0) saturate(100%) invert(19%) sepia(100%) saturate(3100%)
+    hue-rotate(-50deg) brightness(90%) contrast(100%);
 }
 
 .contact--others {
