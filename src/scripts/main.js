@@ -54,10 +54,10 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-// Função para mostrar ou esconder o campo "Outros" para o tipo de projeto
 function showOtherInput() {
     var projectType = document.getElementById('project-type');
     var otherInput = document.getElementById('other-project-type');
+    console.log("showOtherInput called"); // Verifique se a função está sendo chamada
     if (projectType.value === 'Other') {
         otherInput.style.display = 'block';
     } else {
@@ -65,10 +65,10 @@ function showOtherInput() {
     }
 }
 
-// Função para mostrar ou esconder o campo "Outros" para as necessidades de licenciamento
 function showOtherLicensingInput() {
     var licensingNeeds = document.getElementById('licensing-needs');
     var otherLicensingInput = document.getElementById('other-licensing-needs');
+    console.log("showOtherLicensingInput called"); // Verifique se a função está sendo chamada
     if (licensingNeeds.value === 'Other') {
         otherLicensingInput.style.display = 'block';
     } else {
