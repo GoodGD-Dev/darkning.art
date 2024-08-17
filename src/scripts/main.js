@@ -87,18 +87,8 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
         data[key] = value;
     });
 
-    // Obtém a linguagem do HTML
-    const lang = document.documentElement.lang;
-
-    // Define o idList com base na linguagem
-    let idList;
-    if (lang.startsWith('pt')) {
-        idList = '66c097ff1a2064d6f36bdc52'; // ID para português
-    } else if (lang.startsWith('es')) {
-        idList = '66c0aa892394d0ec1f629658'; // ID para espanhol
-    } else {
-        idList = '66c09834bd7bc70b3522d228'; // ID para outros idiomas
-    }
+    // Data de início é a data atual
+    const startDate = new Date().toISOString();
 
     // Configura a URL da API do Trello
     const trelloApiUrl = 'https://api.trello.com/1/cards';
@@ -113,7 +103,9 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
         Formatos : ${data['format-needed']}
         Data: ${data['date-needed']} 
         Licenças: ${data['licensing-needs']}`,
-        idList: idList, // Usa o idList definido
+        due: data['date-needed'] ? new Date(data['date-needed']).toISOString() : null, // Adiciona a data de entrega
+        start: startDate, // Adiciona a data de início
+        idList: '66c09834bd7bc70b3522d228', // Substitua pelo ID da sua lista
         key: '2edec1d82889c648b879474fc0cc0505', // Substitua pela sua chave de API
         token: 'ATTAcc69586c0da53a549ddfe1c766dd27cfb288d69f0f275c22ec28879769073d238258503D' // Substitua pelo seu token de API
     };
@@ -130,7 +122,7 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
 
         if (response.ok) {
             alert('Formulário enviado com sucesso!');
-            e.target.reset(); // Reseta o formulário
+            window.location.href = 'https://darkning.art'; // Redireciona para o site após o envio
         } else {
             alert('Houve um erro ao enviar o formulário.');
         }
