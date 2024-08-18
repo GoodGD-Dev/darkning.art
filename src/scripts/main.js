@@ -54,28 +54,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function showOtherInput() {
-    var projectType = document.getElementById('project-type');
-    var otherInput = document.getElementById('other-project-type');
-    console.log("showOtherInput called"); // Verifique se a função está sendo chamada
-    if (projectType.value === 'Other') {
-        otherInput.style.display = 'block';
-    } else {
-        otherInput.style.display = 'none';
-    }
-}
-
-function showOtherLicensingInput() {
-    var licensingNeeds = document.getElementById('licensing-needs');
-    var otherLicensingInput = document.getElementById('other-licensing-needs');
-    console.log("showOtherLicensingInput called"); // Verifique se a função está sendo chamada
-    if (licensingNeeds.value === 'Other') {
-        otherLicensingInput.style.display = 'block';
-    } else {
-        otherLicensingInput.style.display = 'none';
-    }
-}
-
 // Função para enviar dados para o Trello
 document.getElementById('project-form').addEventListener('submit', async (e) => {
     e.preventDefault(); // Impede o envio padrão do formulário
@@ -154,3 +132,31 @@ document.addEventListener('DOMContentLoaded', function () {
     }
     // Se o idioma não for português nem espanhol, permanece na URL atual
 });
+
+
+function init() {
+    function showOtherInput() {
+        let projectType = document.getElementById('project-type');
+        let otherInput = document.getElementById('other-project-type');
+        if (projectType.value === 'Other') {
+            otherInput.style.display = 'block';
+        } else {
+            otherInput.style.display = 'none';
+        }
+    }
+
+    function showOtherLicensingInput() {
+        let licensingNeeds = document.getElementById('licensing-needs');
+        let otherLicensingInput = document.getElementById('other-licensing-needs');
+        if (licensingNeeds.value === 'Other') {
+            otherLicensingInput.style.display = 'block';
+        } else {
+            otherLicensingInput.style.display = 'none';
+        }
+    }
+
+    document.getElementById('project-type').onchange = showOtherInput;
+    document.getElementById('licensing-needs').onchange = showOtherLicensingInput;
+}
+
+window.onload = init;

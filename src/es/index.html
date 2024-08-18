@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
-    <link rel="stylesheet" href="../styles/main.scss"">
+    <link rel="stylesheet" href="./styles/main.scss">
     <title>Darkning</title>
-    <!-- Etiquetas hreflang para versiones en diferentes idiomas -->
+    <!-- Tags hreflang para versões em diferentes idiomas -->
     <link rel="alternate" hreflang="pt-BR" href="https://darkning.art/pt/" />
     <link rel="alternate" hreflang="es" href="https://darkning.art/es/" />
 </head>
@@ -15,19 +15,19 @@
         <div class="container">
             <div class="header__logo" data-aos="fade-down" data-aos-delay="300">
                 <h1>
-                    <img src="../images/logo/others/logo.png" alt="logo">
+                    <img src="./images/logo/others/logo.png" alt="logo">
                 </h1>
             </div>
             <nav class="header__nav" data-aos="fade-up" data-aos-delay="500">
                 <ul class="header__nav__navbar">
                     <li class="header__nav__navbar__item active" data-target="about">
-                        Acerca de
+                        About
                     </li>
                     <li class="header__nav__navbar__item" data-target="links">
-                        Enlaces
+                        Links
                     </li>
                     <li class="header__nav__navbar__item" data-target="comission">
-                        Comisión
+                        Commission
                     </li>
                 </ul>
             </nav>      
@@ -37,24 +37,24 @@
         <div class="container">
             <section id="about" data-aos="fade-up" data-aos-delay="700">
                 <h2>Sobre</h2>
-                <p>Contenido sobre...</p>
+                <p>Conteúdo sobre...</p>
             </section>
             <section id="links" class="hidden">
                 <div class="contact--redes">
                     <ul class="redes">
                         <li class="redes__icons">
                             <a class="redes__icons__icon" href="https://www.instagram.com/darkning.art/" target="_blank" rel="noopener noreferrer">
-                                <img class="insta" src="../images/svgs/instagram.svg" alt="instagram">
+                                <img class="insta" src="images/svgs/instagram.svg" alt="instagram">
                             </a>
                         </li>
                         <li class="redes__icons">
                             <a class="redes__icons__icon" href="https://www.youtube.com/channel/UCw1OmBxX3P-xY_GGkmslJ9g" target="_blank" rel="noopener noreferrer">
-                                <img class="ytb" src="../images/svgs/youtube.svg" alt="youtube">
+                                <img class="ytb" src="images/svgs/youtube.svg" alt="youtube">
                             </a>
                         </li>
                         <li class="redes__icons">
                             <a class="redes__icons__icon" href="https://cara.app/darkning" target="_blank" rel="noopener noreferrer">
-                                <img class="cara" src="../images/svgs/cara-app-logo-circle.svg" alt="cara app">
+                                <img class="cara" src="images/svgs/cara-app-logo-circle.svg" alt="cara app">
                             </a>
                         </li>
                         <li class="redes__icons"></li>
@@ -77,69 +77,69 @@
             <section id="comission" class="hidden">
                 <div class="form">
                     <form id="project-form">
-                        <label for="email">Correo electrónico* </label>
-                        <input type="email" id="email" name="email" placeholder="ejemplo@ejemplo.com" required>
+                        <label for="email">Email* </label>
+                        <input type="email" id="email" name="email" placeholder="example@example.com" required>
             
-                        <label for="name">Nombre* </label>
-                        <input type="text" id="name" name="name" placeholder="Juan Pérez" required>
+                        <label for="name">Name* </label>
+                        <input type="text" id="name" name="name" placeholder="John Doe" required>
             
-                        <label for="project-type">¿En qué tipo de proyecto estás interesado?* </label>
+                        <label for="project-type">What type of project are you interested in?* </label>
                         <select id="project-type" name="project-type" required onchange="showOtherInput()">
-                            <option value="Proyecto personal">Proyecto personal</option>
-                            <option value="Arte o recurso para proyecto profesional o de pasión">Arte o recurso para proyecto profesional o de pasión</option>
-                            <option value="Arte para portada de álbum o sencillo">Arte para portada de álbum o sencillo</option>
-                            <option value="Pieza personalizada para tatuaje">Pieza personalizada para tatuaje</option>
-                            <option value="Diseños de personajes para RPG (D&D)">Diseños de personajes para RPG (D&D)</option>
-                            <option value="Diseño de personaje original">Diseño de personaje original</option>
-                            <option value="Arte de fans">Arte de fans</option>
-                            <option value="Portada de libro">Portada de libro</option>
-                            <option value="Licenciamiento de una pieza existente">Licenciamiento de una pieza existente</option>
-                            <option value="Pieza digital personalizada o pintura física">Pieza digital personalizada o pintura física</option>
-                            <option value="Otro">Otro</option>
+                            <option value="Personal project">Personal project</option>
+                            <option value="Artwork or asset for professional or passion project">Artwork or asset for professional or passion project</option>
+                            <option value="Artwork for album or single cover">Artwork for album or single cover</option>
+                            <option value="Custom piece for tattoo">Custom piece for tattoo</option>
+                            <option value="Tabletop RPG (D&D) character designs">Tabletop RPG (D&D) character designs</option>
+                            <option value="Original character design">Original character design</option>
+                            <option value="Fan Art">Fan Art</option>
+                            <option value="Book cover">Book cover</option>
+                            <option value="Licensing an existing piece">Licensing an existing piece</option>
+                            <option value="Custom digital piece or physical painting">Custom digital piece or physical painting</option>
+                            <option value="Other">Other</option>
                         </select>
             
                         <div class="other-input" id="other-project-type">
-                            <label for="other-project-type-input">Por favor, especifica:</label>
+                            <label for="other-project-type-input">Please specify:</label>
                             <input type="text" id="other-project-type-input" name="other-project-type-input">
                         </div>
             
-                        <label for="price-range">Rango de precios* </label>
+                        <label for="price-range">Price Range* </label>
                         <input type="text" id="price-range" name="price-range" placeholder="$100 - $500" required>
             
-                        <label for="description">Descripción de la solicitud* </label>
-                        <textarea id="description" name="description" rows="4" maxlength="500" placeholder="Describe tu proyecto en detalle..." required></textarea>
+                        <label for="description">Description of request* </label>
+                        <textarea id="description" name="description" rows="4" maxlength="500" placeholder="Describe your project in detail..." required></textarea>
             
-                        <label for="visual-preference">Si hay piezas que te atraen visualmente, por favor, añade un enlace a ellas o descríbelas a continuación.</label>
-                        <textarea id="visual-preference" name="visual-preference" rows="4" maxlength="300" placeholder="Añade enlaces o descripciones..."></textarea>
+                        <label for="visual-preference">If there are any pieces that you are drawn to visually, please feel free to add a link to them or describe them below.</label>
+                        <textarea id="visual-preference" name="visual-preference" rows="4" maxlength="300" placeholder="Add links or descriptions..."></textarea>
             
-                        <label for="format-needed">¿Necesitas este proyecto en un formato específico?</label>
-                        <input type="text" id="format-needed" name="format-needed" placeholder="p. ej., JPEG, PNG, PDF">
+                        <label for="format-needed">Do you need this project in a specific format?</label>
+                        <input type="text" id="format-needed" name="format-needed" placeholder="e.g., JPEG, PNG, PDF">
             
-                        <label for="date-needed">Fecha necesaria, si aplica</label>
+                        <label for="date-needed">Date needed by, if applicable</label>
                         <input type="date" id="date-needed" name="date-needed">
             
-                        <label for="licensing-needs">Necesidades de licenciamiento* </label>
+                        <label for="licensing-needs">Licensing needs* </label>
                         <select id="licensing-needs" name="licensing-needs" required onchange="showOtherLicensingInput()">
-                            <option value="Derechos exclusivos">Derechos exclusivos</option>
-                            <option value="Licenciamiento comercial">Licenciamiento comercial</option>
-                            <option value="Uso personal">Uso personal</option>
-                            <option value="No necesario">No necesario</option>
-                            <option value="No estoy seguro">No estoy seguro</option>
-                            <option value="Otro">Otro</option>
+                            <option value="Exclusive rights">Exclusive rights</option>
+                            <option value="Commercial licensing">Commercial licensing</option>
+                            <option value="Personal use">Personal use</option>
+                            <option value="Not needed">Not needed</option>
+                            <option value="Not sure">Not sure</option>
+                            <option value="Other">Other</option>
                         </select>
             
                         <div class="other-input" id="other-licensing-needs">
-                            <label for="other-licensing-needs-input">Por favor, especifica:</label>
+                            <label for="other-licensing-needs-input">Please specify:</label>
                             <input type="text" id="other-licensing-needs-input" name="other-licensing-needs-input">
                         </div>
             
-                        <button type="submit">Enviar</button>
+                        <button type="submit">Submit</button>
                     </form>
                 </div>
             </section>
         </div>
     </main>
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
-    <script src="../scripts/main.js"></script>
+    <script src="./scripts/main.js"></script>
 </body>
 </html>
