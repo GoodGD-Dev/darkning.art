@@ -1,47 +1,48 @@
-@use 'var';
+@use "var";
 
 .header {
-    display: flex;
-    text-align: center;
+  display: flex;
+  text-align: center;
 
-    &__logo {
-        padding: 10px;
-    }
+  &__logo {
+    padding: 10px;
+  }
 
-    &__nav {
-        &__navbar {
-            display: flex;
-            justify-content: center;
-            list-style: none;
-            margin-bottom: 80px;
+  &__nav {
+    &__navbar {
+      display: flex;
+      justify-content: center;
+      list-style: none;
+      margin-bottom: 80px;
 
-            &__item {
-                padding: 2px 10px;
-                background-color: var.$color1;
-                margin: 1px;
-                font-weight: bold;
-                font-size: 15px;
-                color: var.$color2;
-                text-decoration: none;
-                text-transform: uppercase;
+      &__item {
+        font-family: "Navbar", cursive;
+        padding: 2px 10px;
+        background-color: var.$color1;
+        margin: 1px;
+        font-weight: bold;
+        font-size: 15px;
+        color: var.$color2;
+        text-decoration: none;
+        text-transform: uppercase;
 
-                &:hover {
-                    color: var.$color3;
-                    cursor: pointer;
-                }
-            }
+        &:hover {
+          color: var.$color3;
+          cursor: pointer;
         }
+      }
     }
+  }
 }
 
 .active {
-    text-transform: uppercase;
-    text-decoration: line-through;
-    text-decoration-thickness: 2px;
-    color: var.$color3;
+  text-transform: uppercase;
+  text-decoration: line-through;
+  text-decoration-thickness: 2px;
+  color: var.$color3;
 
-    &:hover {
-        cursor: default;
-        color: var.$color3;
-    }
+  &:hover {
+    cursor: default;
+    color: var.$color3;
+  }
 }

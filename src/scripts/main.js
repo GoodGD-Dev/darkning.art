@@ -173,3 +173,41 @@ function init() {
 }
 
 window.onload = init;
+
+
+const accessToken = 'SEU_TOKEN_DE_ACESSO';
+const userId = 'SEU_USER_ID';
+const endpoint = `https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`;
+
+fetch(endpoint)
+    .then(response => response.json())
+    .then(data => {
+        const posts = data.data;
+        const feedElement = document.getElementById('instagram-feed');
+
+        posts.forEach(post => {
+            const postElement = document.createElement('div');
+            postElement.className = 'post';
+
+            if (post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM') {
+                postElement.innerHTML = `
+              <a href="${post.permalink}" target="_blank">
+                <img src="${post.media_url}" alt="${post.caption || ''}">
+              </a>
+              <p>${post.caption || ''}</p>
+            `;
+            } else if (post.media_type === 'VIDEO') {
+                postElement.innerHTML = `
+              <a href="${post.permalink}" target="_blank">
+                <video controls src="${post.media_url}"></video>
+              </a>
+              <p>${post.caption || ''}</p>
+            `;
+            }
+
+            feedElement.appendChild(postElement);
+        });
+    })
+    .catch(error => {
+        console.error('Erro ao buscar os posts do Instagram:', error);
+    });                             

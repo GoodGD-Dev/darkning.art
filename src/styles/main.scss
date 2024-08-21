@@ -1,17 +1,17 @@
-@use 'var';
-@use 'header';
-@use 'about';
-@use 'contact';
-@use 'commission';
+@use "var";
+@use "header";
+@use "about";
+@use "contact";
+@use "commission";
 
 .hidden {
-    display: none;
+  display: none;
 }
 
 .visible {
-    display: block;
+  display: block;
 }
 
 .aos-animate {
-    opacity: 1 !important;
-};
+  opacity: 1 !important;
+}

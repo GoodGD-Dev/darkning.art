@@ -1,4 +1,4 @@
-@use 'var';
+@use "var";
 
 .form {
   display: flex;
@@ -20,14 +20,12 @@ label {
   margin-bottom: 8px;
   color: #333;
   font-size: 16px;
-  font-family: 'Courier New', Courier, monospace;
 }
 
 input,
 select,
 textarea,
 button {
-  font-family: 'Courier New', Courier, monospace;
   width: calc(100% - 20px);
   padding: 10px;
   margin-bottom: 20px;
