@@ -1,24 +1,26 @@
+// Inicialização do AOS
 AOS.init();
 
 document.addEventListener('DOMContentLoaded', () => {
-    let sections = {
+    // Mapeamento das seções e itens de navegação
+    const sections = {
         'about': document.getElementById('about'),
         'links': document.getElementById('links'),
         'comission': document.getElementById('comission')
     };
 
-    let navItems = {
+    const navItems = {
         'about': document.querySelector('[data-target="about"]'),
         'links': document.querySelector('[data-target="links"]'),
         'comission': document.querySelector('[data-target="comission"]')
     };
 
+    // Mostra a seção específica
     function showSection(section) {
-        for (let key in sections) {
+        for (const key in sections) {
             if (key === section) {
                 sections[key].classList.remove('hidden');
                 sections[key].classList.add('visible');
-                // Atualiza atributos data-aos e data-aos-delay
                 sections[key].setAttribute('data-aos', 'fade-right');
                 sections[key].setAttribute('data-aos-delay', '100');
             } else {
@@ -29,6 +31,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         }
 
+        // Reativa animações AOS
         document.querySelectorAll('[data-aos]').forEach(el => el.classList.remove('aos-animate'));
         setTimeout(() => {
             document.querySelectorAll('[data-aos]').forEach(el => el.classList.add('aos-animate'));
@@ -36,12 +39,14 @@ document.addEventListener('DOMContentLoaded', () => {
         }, 0);
     }
 
+    // Define o item de navegação ativo
     function setActiveNavItem(navItem) {
-        for (let key in navItems) {
+        for (const key in navItems) {
             navItems[key].classList.toggle('active', key === navItem);
         }
     }
 
+    // Adiciona eventos de clique aos itens de navegação
     function addNavItemClickEvent(navItem, section) {
         navItem.addEventListener('click', () => {
             showSection(section);
@@ -49,71 +54,50 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    for (let key in navItems) {
+    // Inicializa os eventos de clique para os itens de navegação
+    for (const key in navItems) {
         addNavItemClickEvent(navItems[key], key);
     }
 });
 
-// Função para enviar dados para o Trello
+// Envia dados do formulário para o Trello
 document.getElementById('project-form').addEventListener('submit', async (e) => {
-    e.preventDefault(); // Impede o envio padrão do formulário
-
-    // Coleta os dados do formulário
+    e.preventDefault();
     const formData = new FormData(e.target);
     const data = {};
-    formData.forEach((value, key) => {
-        data[key] = value;
-    });
+    formData.forEach((value, key) => data[key] = value);
 
-    // Obtém a linguagem do HTML
     const lang = document.documentElement.lang;
+    const idList = lang.startsWith('pt') ? '66c097ff1a2064d6f36bdc52' :
+        lang.startsWith('es') ? '66c0aa892394d0ec1f629658' :
+            '66c09834bd7bc70b3522d228';
 
-    // Define o idList com base na linguagem
-    let idList;
-    if (lang.startsWith('pt')) {
-        idList = '66c097ff1a2064d6f36bdc52'; // ID para português
-    } else if (lang.startsWith('es')) {
-        idList = '66c0aa892394d0ec1f629658'; // ID para espanhol
-    } else {
-        idList = '66c09834bd7bc70b3522d228'; // ID para outros idiomas
-    }
-
-    // Data de início é a data atual
-    const startDate = new Date().toISOString();
-
-    // Configura a URL da API do Trello
-    const trelloApiUrl = 'https://api.trello.com/1/cards';
-
-    // Configura os dados do card
     const cardData = {
-        name: `${data.name} ${data.email}`, // Inclui o email junto ao nome
+        name: `${data.name} ${data.email}`,
         desc: `Tipo de Projeto: ${data['project-type']}
-        Preço: ${data['price-range']}
-        Descrição: ${data.description}
-        Referências: ${data['visual-preference']}
-        Formatos : ${data['format-needed']}
-        Data: ${data['date-needed']} 
-        Licenças: ${data['licensing-needs']}`,
+               Preço: ${data['price-range']}
+               Descrição: ${data.description}
+               Referências: ${data['visual-preference']}
+               Formatos: ${data['format-needed']}
+               Data: ${data['date-needed']} 
+               Licenças: ${data['licensing-needs']}`,
         due: data['date-needed'] ? new Date(data['date-needed']).toISOString() : null,
-        start: startDate,
+        start: new Date().toISOString(),
         idList: idList,
         key: '2edec1d82889c648b879474fc0cc0505',
         token: 'ATTAcc69586c0da53a549ddfe1c766dd27cfb288d69f0f275c22ec28879769073d238258503D'
     };
 
-    // Envia os dados para o Trello
     try {
-        const response = await fetch(trelloApiUrl, {
+        const response = await fetch('https://api.trello.com/1/cards', {
             method: 'POST',
-            headers: {
-                'Content-Type': 'application/json'
-            },
+            headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(cardData)
         });
 
         if (response.ok) {
             alert('Formulário enviado com sucesso!');
-            window.location.href = 'https://darkning.art'; // Redireciona para o site após o envio
+            window.location.href = 'https://darkning.art';
         } else {
             alert('Houve um erro ao enviar o formulário.');
         }
@@ -123,53 +107,39 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
     }
 });
 
-// Desativa o contextmenu
-window.addEventListener('contextmenu', function (e) {
-    console.log('Context menu prevention active'); // Verifique se isso aparece no console
+// Desativa o menu de contexto
+window.addEventListener('contextmenu', (e) => {
     e.preventDefault();
 });
 
-document.addEventListener('DOMContentLoaded', function () {
-    var userLang = navigator.language || navigator.userLanguage;
-    var path = window.location.pathname;
+// Redireciona para o idioma correto
+document.addEventListener('DOMContentLoaded', () => {
+    const userLang = navigator.language || navigator.userLanguage;
+    const path = window.location.pathname;
 
-    // Verifica se o idioma do navegador é português ou espanhol
-    if (userLang.startsWith('pt')) {
-        if (!path.startsWith('/pt/')) {
-            window.location.href = '/pt/';
-        }
-    } else if (userLang.startsWith('es')) {
-        if (!path.startsWith('/es/')) {
-            window.location.href = '/es/';
-        }
+    if (userLang.startsWith('pt') && !path.startsWith('/pt/')) {
+        window.location.href = '/pt/';
+    } else if (userLang.startsWith('es') && !path.startsWith('/es/')) {
+        window.location.href = '/es/';
     }
-    // Se o idioma não for português nem espanhol, permanece na URL atual
 });
 
-
+// Inicialização de eventos para o formulário
 function init() {
     function showOtherInput() {
-        let projectType = document.getElementById('project-type');
-        let otherInput = document.getElementById('other-project-type');
-        if (projectType.value === 'Other') {
-            otherInput.style.display = 'block';
-        } else {
-            otherInput.style.display = 'none';
-        }
+        const projectType = document.getElementById('project-type');
+        const otherInput = document.getElementById('other-project-type');
+        otherInput.style.display = projectType.value === 'Other' ? 'block' : 'none';
     }
 
     function showOtherLicensingInput() {
-        let licensingNeeds = document.getElementById('licensing-needs');
-        let otherLicensingInput = document.getElementById('other-licensing-needs');
-        if (licensingNeeds.value === 'Other') {
-            otherLicensingInput.style.display = 'block';
-        } else {
-            otherLicensingInput.style.display = 'none';
-        }
+        const licensingNeeds = document.getElementById('licensing-needs');
+        const otherLicensingInput = document.getElementById('other-licensing-needs');
+        otherLicensingInput.style.display = licensingNeeds.value === 'Other' ? 'block' : 'none';
     }
 
-    document.getElementById('project-type').onchange = showOtherInput;
-    document.getElementById('licensing-needs').onchange = showOtherLicensingInput;
+    document.getElementById('project-type').addEventListener('change', showOtherInput);
+    document.getElementById('licensing-needs').addEventListener('change', showOtherLicensingInput);
 }
 
 window.onload = init;
