@@ -94,11 +94,11 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
         Formatos : ${data['format-needed']}
         Data: ${data['date-needed']} 
         Licenças: ${data['licensing-needs']}`,
-        due: data['date-needed'] ? new Date(data['date-needed']).toISOString() : null, // Adiciona a data de entrega
-        start: startDate, // Adiciona a data de início
-        idList: idList, // Usa o idList definido
-        key: '2edec1d82889c648b879474fc0cc0505', // Substitua pela sua chave de API
-        token: 'ATTAcc69586c0da53a549ddfe1c766dd27cfb288d69f0f275c22ec28879769073d238258503D' // Substitua pelo seu token de API
+        due: data['date-needed'] ? new Date(data['date-needed']).toISOString() : null,
+        start: startDate,
+        idList: idList,
+        key: '2edec1d82889c648b879474fc0cc0505',
+        token: 'ATTAcc69586c0da53a549ddfe1c766dd27cfb288d69f0f275c22ec28879769073d238258503D'
     };
 
     // Envia os dados para o Trello
@@ -173,41 +173,3 @@ function init() {
 }
 
 window.onload = init;
-
-
-const accessToken = 'SEU_TOKEN_DE_ACESSO';
-const userId = 'SEU_USER_ID';
-const endpoint = `https://graph.instagram.com/${userId}/media?fields=id,caption,media_type,media_url,thumbnail_url,permalink&access_token=${accessToken}`;
-
-fetch(endpoint)
-    .then(response => response.json())
-    .then(data => {
-        const posts = data.data;
-        const feedElement = document.getElementById('instagram-feed');
-
-        posts.forEach(post => {
-            const postElement = document.createElement('div');
-            postElement.className = 'post';
-
-            if (post.media_type === 'IMAGE' || post.media_type === 'CAROUSEL_ALBUM') {
-                postElement.innerHTML = `
-              <a href="${post.permalink}" target="_blank">
-                <img src="${post.media_url}" alt="${post.caption || ''}">
-              </a>
-              <p>${post.caption || ''}</p>
-            `;
-            } else if (post.media_type === 'VIDEO') {
-                postElement.innerHTML = `
-              <a href="${post.permalink}" target="_blank">
-                <video controls src="${post.media_url}"></video>
-              </a>
-              <p>${post.caption || ''}</p>
-            `;
-            }
-
-            feedElement.appendChild(postElement);
-        });
-    })
-    .catch(error => {
-        console.error('Erro ao buscar os posts do Instagram:', error);
-    });                             
