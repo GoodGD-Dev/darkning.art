@@ -68,9 +68,9 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
     formData.forEach((value, key) => data[key] = value);
 
     const lang = document.documentElement.lang;
-    const idList = lang.startsWith('pt') ? 'id da sua lista em pt' :
-        lang.startsWith('es') ? 'id da sua lista em es' :
-            'id da sua lista em en';
+    const idList = lang.startsWith('pt') ? '66c097ff1a2064d6f36bdc52' :
+        lang.startsWith('es') ? '66c0aa892394d0ec1f629658' :
+            '66c09834bd7bc70b3522d228'
 
     const cardData = {
         name: `${data.name} ${data.email}`,
@@ -84,8 +84,8 @@ document.getElementById('project-form').addEventListener('submit', async (e) => 
         due: data['date-needed'] ? new Date(data['date-needed']).toISOString() : null,
         start: new Date().toISOString(),
         idList: idList,
-        key: 'seu_key_aqui',
-        token: 'seu_token_aqui'
+        key: '2edec1d82889c648b879474fc0cc0505',
+        token: 'ATTAcc69586c0da53a549ddfe1c766dd27cfb288d69f0f275c22ec28879769073d238258503D'
     };
 
     try {
